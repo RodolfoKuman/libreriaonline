@@ -1,0 +1,169 @@
+.container2
+{
+	position: relative;
+	width: 50%;
+	margin: 0 auto;
+	padding: 100px;
+}
+
+.img-load
+{
+	width: 70px;
+}
+
+#login
+{
+	position: relative;
+	width: 40%;
+	height: 500px;
+	margin: 0 auto;
+	padding-top: 100px;
+}
+
+#register
+{
+	position: relative;
+	width: 40%;
+	height: 700px;
+	margin: 0 auto;
+	padding-top: 100px;
+}
+
+#register
+{
+	position: relative;
+	width: 40%;
+	height: 700px;
+	margin: 0 auto;
+	padding-top: 100px;
+}
+
+.spacing
+{
+	margin:30px;
+	padding: 10px;
+}
+
+.centrar-texto
+{
+	text-align: center;
+}
+
+.text-red
+{
+	color: crimson;
+}
+
+
+form
+{
+	position: relative;
+	width: 100%;
+	background: white;
+}
+
+form a
+{
+	position: relative;
+	float: right;
+	margin-top: 20px;
+}
+
+#botonlogin, #boton
+{
+	position: relative;
+	float: left;
+	width: 170px;
+	background: #8F2B45;
+	margin-top: 20px;
+}
+/* form elements */
+label
+{
+  display: block;
+}
+
+input[type="email"],input[type="password"] , input[type="text"],
+{
+  display: block;
+  margin: 0;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  -ms-border-radius: none;
+  -o-border-radius: none;
+  border-radius: none;
+}
+
+input[type="email"]:focus , input[type="password"]:focus , input[type="text"]:focus
+{
+  outline: none;
+}
+
+/* lists */
+input-list
+{
+  list-style: none;
+  margin: 0 -10px;
+  padding: 0;
+}
+
+.input-list
+{
+  display: block;
+  padding: 0 10px;
+  width: 100%;
+  float: left;
+}
+
+.style-4 input[type="email"], .style-4 input[type="password"], .style-4 input[type="text"]
+{
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  -webkit-transition: border 0.3s;
+  -moz-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  transition: border 0.3s;
+	width: 100%;
+}
+.style-4 input[type="email"]:focus, .style-4 input[type="email"]:focus , .style-4 input[type="text"]:focus,
+{
+  border-bottom: solid 2px #55AEB4;
+}
+
+.style-4 input[type="email"]:focus, .style-4 input[type="password"]:focus , .style-4 input[type="text"]:focus
+{
+  border-bottom: solid 2px #55AEB4;
+}
+
+@media (max-width: 450px)
+{
+	#register
+	{
+		width: 90%;
+		margin: 10px;
+	}
+
+	#login{
+		width: 100%;
+		margin: 0 auto;
+	}
+
+}
+
+@media (max-width: 850px)
+{
+	#login
+	{
+		width: 60%;
+	}
+}

@@ -61,7 +61,7 @@
     <div class="users">
 
     <div id="register">
-      <form  action=""  method="POST" onsubmit="addUser()" class=" style-4 clearfix ">
+      <form id="addUser" action=""  method="POST"  class=" style-4 clearfix ">
         <div class="">
           <label for="">Nombre</label>
           <input type="text" required="true" name="nombre" id="nombre">
@@ -102,7 +102,7 @@
           <span class="help-block" ></span>
         </div>
         <div class="">
-          <button id="boton" onkeypress="addUser()"  onclick="addUser()" class="btn btn-primary">Agregar</button>
+          <button id="boton"  class="btn btn-primary">Agregar</button>
         </div>
       </form>
     </div>

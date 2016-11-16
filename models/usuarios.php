@@ -5,7 +5,7 @@
 function tableUsers($datos){
   $codigo = '<div class="container tableUsers espaciado">';
 	$codigo .= '<div class="row table-responsive">';
-	$codigo .= '<table class="table table-bordered  table-striped " id="tableUsers" >';
+	$codigo .= '<table id="users" class="table table-bordered  table-striped " id="tableUsers" >';
 
 	$codigo .='<th>Nombre</th>';
   $codigo .='<th>Apellido</th>';
@@ -49,49 +49,58 @@ function editUser($datos){
 	if($fila = mysqli_fetch_array($datos)){
 
 		$nombreActual = utf8_encode($fila["nombre"]);
+    $apellidoActual = utf8_encode($fila["apellido"]);
+    $userActual = utf8_encode($fila["nom_user"]);
 		$emailActual = utf8_encode($fila["email"]);
-		$telefonoActual = utf8_encode($fila["telefono"]);
-		$typeActual = utf8_encode($fila["tipoUser"]);
+		$typeActual = utf8_encode($fila["type"]);
 
 		$codigoActual = $fila["id"];
 
-		$codigo = '<div class="container ">
-      <form class="form-horizontal" method="post" action="funciones/userUpdate.php">
-        <div class="form-group">
-          <label for="nombre" class="col-sm-3 control-label">Nombre:</label>
-            <div class="col-sm-5">
-              <input type="text" class="form-control" name="nombre" id="nombre" value="'.$nombreActual.'"">
-            </div>
+		$codigo = '<div class="contenedor ">
+
+      <form id="actualizarUser" action=""  method="POST"  class=" style-4 clearfix ">
+      <div class=" mensaje">
+
+      </div>
+      <h2>Editar usuario </h2>
+        <div class="">
+          <label for="">Nombre</label>
+          <input type="text" required="true" name="nombre" id="nombre" value="'.$nombreActual.'">
+          <span class="help-block"></span>
         </div>
-        <div class="form-group">
-          <label for="email" class="col-sm-3 control-label">Email:</label>
-            <div class="col-sm-5">
-              <input type="email" class="form-control" name="email" id="email" value="'.$emailActual.'"">
-            </div>
+        <div class="">
+          <label for="">Apellido</label>
+          <input type="text" name="apellido" id="apellido" required value="'.$apellidoActual.'">
+          <span class="help-block"></span>
         </div>
-        <div class="form-group">
-          <label for="telefono" class="col-sm-3 control-label">Telefono:</label>
-            <div class="col-sm-5">
-              <input type="phone" class="form-control" name="telefono" id="telefono" value="'.$telefonoActual.'"">
-            </div>
+        <div class="">
+          <label for="">Nombre de usuario</label>
+          <input type="text" name="user" id="user" placeholder="Mínimo 8 carácteres" required="true" value="'.$userActual.'">
+          <span class="help-block"></span>
         </div>
-        <div class="form-group">
+        <div class="">
+          <label for="">Email</label>
+          <input type="email" name="email" id="email" placeholder="example@gmail.com" disabled="disabled" value="'.$emailActual.'">
+          <span class="help-block"></span>
+        </div>
+
+        <div >
           <label for="tipousuario" class="col-sm-3 control-label">Tipo de usuario:</label>
-            <div class="col-sm-5">
+            <div >
               <select name="type" id="type" class="form-control"  >
-              <option name="Administrador"  value="'.$typeActual.'"><?php echo "$typeActual"; ?></option>
-                <option name="Administrador" value="Administrador">Administrador</option>
-                <option name="salab" value="salab">SALAB</option>
-                <option name="inventarios" value="inventarios">Inventarios</option>
-                <option name="helpdesk" value="helpdesk">Help-desk</option>
-                <option name="helpdesk" value="residencia">Residencia</option>
+                <option name="type"  value="'.$typeActual.'">'.$typeActual.'</option>
+                <option name="type" value="administrador">administrador</option>
+                <option name="type" value="cliente">cliente</option>
+                <option name="type" value="ejecutivo">ejecutivo</option>
               </select>
             </div>
-
+             <input type="hidden" id="codigo" name="codigo" value="'.$codigoActual.'">
         </div>
-          <input type="hidden" name="codigo" value="'.$codigoActual.'">
-        <input class="btn btn-default col-sm-offset-4 col-sm-2 boton" type="submit" name="name" value="Actualizar">
+        <div class="">
+          <button style="margin-top:20px;"  class="btn btn-primary" id="botonActualizar">Actualizar</button>
+        </div>
       </form>
+      <p>Regresar al <a href="users.php">listado</a></p>
     </div>';
 
 	}else{

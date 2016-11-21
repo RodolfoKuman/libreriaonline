@@ -5,31 +5,18 @@
     $("#addUser").on("submit",function(e){
 
       e.preventDefault();
-      // Obtengo los valores con el id de los campos
-      var nombre = $("#nombre").val();
-      var apellido = $("#apellido").val();
-      var user = $("#user").val();
-      var email = $("#email").val();
-      var type = $("#type").val();
-      var password = $("#password").val();
-      var parent = $(this).parent().parent().attr('id');
+
               $.ajax({
                   type: "POST",
                   url: "models/insertUser.php",        // enlace del archivo que contiene la funcionalidad de insertar usuarios en la BD
-                  data: {
-                        nombre: $('#nombre').val(),     // Paso los parámetros en formato JSON
-                        apellido: $('#apellido').val(),
-                        user: $('#user').val(),
-                        email: $('#email').val(),
-                        type: $('#type').val(),
-                        password:$('#password').val(),
-                        },
+                  data: $('#addUser').serialize(),    // Serializo los valores del formulario en un solo objeto
                   beforeSend: function(){
 
                     $("#noti").html('<font >Un momento porfavor...</font> <img class="img-load" src="img/loading.gif"/>').show();
 
                   },
                   success: function(data){
+					  console.log(data);
                   // Si el servidor devuelve una respuesta se ejecuta lo siguiente dependiendo del resultado
                   if(data == 1){
 
@@ -37,7 +24,8 @@
                         window.setTimeout('location.reload()', 2000); // Regargo la página en dos segundos para mostrar el nuevo registro
                       }
                       else if (data == 2) {
-                          $("#noti").html('Error al insertar Usuario.').show();
+                        $(".mensaje").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><p>Error al insertar</p></div>');
+
                       }
                       else if (data == 3) {
                             $(".mensaje").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><p>Debe llenar todos los campos</p></div>');
@@ -95,30 +83,30 @@
   });
 
 
-  /*  Funcion para editar ussuarios en proceso... xD */
+  /*  Funcion para editar ussuarios en */
 
   $(document).ready(function(){
     $("#actualizarUser").on("submit",function(e){
       e.preventDefault();
-      var nombre = $("#nombre").val();
+	  var nombre = $("#nombre").val();
       var apellido = $("#apellido").val();
       var user = $("#user").val();
       var email = $("#email").val();
       var type = $("#type").val();
       var codigo= $("#codigo").val();
 
-
               $.ajax({
                   type: "POST",
-                  url: "models/userUpdate.php",        // enlace del archivo que contiene la funcionalidad de insertar usuarios en la BD
+                  url: "models/userUpdate.php",        // enlace del archivo que contiene la funcionalidad de actualizar
                   data: {
-                        nombre: $('#nombre').val(),     // Paso los parámetros en formato JSON
-                        apellido: $('#apellido').val(),
-                        user: $('#user').val(),
-                        email: $('#email').val(),
-                        type: $('#type').val(),
-                        codigo:$("#codigo").val()
-                        },
+      					   nombre: $("#nombre").val(),
+      					   apellido: $("#apellido").val(),
+      					   user: $("#user").val(),
+      					   email: $("#email").val(),
+      					   type: $("#type").val(),
+      					   codigo: $("#codigo").val()
+
+				            },
                   beforeSend: function(){
 
                   },
@@ -128,8 +116,8 @@
                   // Si el servidor devuelve una respuesta se ejecuta lo siguiente dependiendo del resultado
                   if(data == 1){
 
-                      $(".mensaje").html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><p>Usuario actualizado</p></div>');
-                      //alert("Usuario actualizado");
+                        $(".mensaje").html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><p>Usuario '+ nombre + ' actualizado</p></div>');
+
                       }
                       else if (data == 2) {
 
@@ -138,7 +126,7 @@
                       else if (data == 3) {
                             $(".mensaje").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><p>Error en la base de datos</p></div>');
                       }else if (data == 4) {
-                          $(".mensaje").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><p>No selecciono el registro a eliminar</p></div>');
+                          $(".mensaje").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><p>No selecciono el registro a actualizar</p></div>');
                       }
 
                    }

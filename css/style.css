@@ -27,8 +27,14 @@ body
 		letter-spacing: 1px;
 }
 
-.navbar.navbar-default ul li a:hover{
+.navbar.navbar-default ul li a:hover
+{
 	color:rgb(0,100,200);
+}
+
+.navbar-brand
+{
+	color: white !important;
 }
 
 .white
@@ -50,7 +56,10 @@ body
 	top: 1em;
 }
 
-
+.tableBook img
+{
+	width: 50px;
+}
 
 #portada
 {

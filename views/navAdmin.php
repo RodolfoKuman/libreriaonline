@@ -15,7 +15,7 @@
     <ul class="nav navbar-nav">
       <li><a href="#">Mi perfil</a></li>
       <li><a href="#">Pedidos</a></li>
-      <li><a href="#">Artículos</a></li>
+      <li><a href="books.php">Libros</a></li>
       <li><a href="login.php">Categorías</a></li>
       <li><a href="users.php">Usuarios</a></li>
       <li><a href="#">Bitácora</a></li>

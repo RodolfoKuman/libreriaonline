@@ -62,7 +62,7 @@ function editUser($datos){
       <div class=" mensaje">
 
       </div>
-      <h2>Editar usuario </h2>
+      <h2>Editar usuario <span style="color:#477DED;">'.$nombreActual.'</span> </h2>
         <div class="">
           <label for="">Nombre</label>
           <input type="text" required="true" name="nombre" id="nombre" value="'.$nombreActual.'">
@@ -100,7 +100,7 @@ function editUser($datos){
           <button style="margin-top:20px;"  class="btn btn-primary" id="botonActualizar">Actualizar</button>
         </div>
       </form>
-      <p>Regresar al <a href="users.php">listado</a></p>
+      <p>Regresar al <a href="users.php">listado de usuarios</a></p>
     </div>';
 
 	}else{

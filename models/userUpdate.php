@@ -40,7 +40,7 @@
   }
 
 }else{
-  echo "4";// No selecciono el registro a eliminar
+  echo "4";// No selecciono el registro a actualizar
 }
 
 

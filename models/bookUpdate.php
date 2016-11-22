@@ -1,12 +1,12 @@
 <?php
 session_start();
-if($_SESSION["type"] == "administrador" || $_SESSION["type"] == "ejecutivo" ) {
-//  $user=$_SESSION["nombre"];
-}
+  if($_SESSION["type"] == "administrador" || $_SESSION["type"] == "ejecutivo" ) {
+    $user=$_SESSION["nombre"];
+  }
 
-else {
-  header('Location: ../index.html');
-}
+  else {
+    header('Location: ../index.html');
+  }
 
   include('datos.php');
   include('funciones.php');

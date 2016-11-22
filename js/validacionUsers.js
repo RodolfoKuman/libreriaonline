@@ -13,7 +13,7 @@ function login(){
                       window.location="dashboardAdmin.php";
                   }
                   else if(data == "2"){
-                          $("#password").parent().children("span").html('Hola ejecutivo').show();
+                      window.location="dashboardAdmin.php";
                         }
                   else   if(data == "3"){
                           $("#password").parent().children("span").html('Hola cliente').show();

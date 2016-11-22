@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION["type"] == "administrador" || $_SESSION["userType"] == "ejecutivo" ) {
+if($_SESSION["type"] == "administrador" || $_SESSION["type"] == "ejecutivo" ) {
   $user=$_SESSION["nombre"];
 }
 

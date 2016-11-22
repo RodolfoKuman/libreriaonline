@@ -15,7 +15,6 @@
     <ul class="nav navbar-nav">
       <li><a href="index.html">Inicio</a></li>
       <li><a href="#">Novedades</a></li>
-      <li><a href="#">Categorias</a></li>
       <li><a href="login.php">Log in</a></li>
       <li><a href="register.php">Registrate</a></li>
     </ul>

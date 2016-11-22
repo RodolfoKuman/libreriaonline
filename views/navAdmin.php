@@ -16,9 +16,15 @@
       <li><a href="#">Mi perfil</a></li>
       <li><a href="#">Pedidos</a></li>
       <li><a href="books.php">Libros</a></li>
-      <li><a href="login.php">Categorías</a></li>
-      <li><a href="users.php">Usuarios</a></li>
-      <li><a href="#">Bitácora</a></li>
+      <?php
+        if($_SESSION["type"] == "administrador")
+        {
+          echo '<li><a href="users.php">Usuarios</a></li>
+                <li><a href="#">Bitácora</a></li>';
+        }
+       ?>
+
+
       <li><?php echo '<a style= "color:#6399D9;" >'."Hola! ".$_SESSION["nickname"].'</a>'; ?></li>
       <li><a href="models/cerrarsesion.php">Cerrar sesión</a></li>
     </ul>

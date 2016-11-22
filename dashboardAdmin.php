@@ -1,9 +1,10 @@
 <?php
-  session_start();
-  if($_SESSION["type"] != "administrador" ) {
-    header('Location: index.html');
-  }else if($_SESSION["id"]== 0){
-	  header('Location: index.html');
+session_start();
+  if($_SESSION["type"] == "administrador" || $_SESSION["type"] == "ejecutivo" ) {
+    $user=$_SESSION["nombre"];
+  }
+  else {
+    header('Location: ../index.html');
   }
 ?>
 <!DOCTYPE html>
@@ -31,6 +32,15 @@
 
 <div class="contenedor">
   <h2>Datos personales</h2>
+  <?php
+  echo'
+        <h4>Nombre: '.$_SESSION["nombre"].'</h4>
+        <h4>Apellido: '.$_SESSION["apellido"].'</h4>
+        <h4>Nickname: '.$_SESSION["nickname"].'</h4>
+        <h4>Email: '.$_SESSION["email"].'</h4>
+        <button class="btn btn-primary">Editar</button>
+      ';
+   ?>
 </div>
 
 <?php include('views/footer.php'); ?>

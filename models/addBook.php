@@ -79,7 +79,7 @@ session_start();
             if(mysqli_query($con,$query)){
               echo "<h2>Libro registrado</h2>";  //registrado correcto
             }else {
-              echo "Error al registrar libro"; // Error en la consulta o en la conexion
+              echo "Error al registrar libro".mysqli_error($con); // Error en la consulta o en la conexion
             }
 
 

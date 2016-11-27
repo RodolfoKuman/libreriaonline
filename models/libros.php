@@ -113,15 +113,18 @@ function editBook($datos){
 // funcion para listar libros para la venta
 
 function listBooks($datos){
-
-
 	    while($fila = @mysqli_fetch_array($datos)){
         echo '
-              <h4 style="color: rgb(0,150,197)" >'.$fila["nombre"].'</h4>
+              <div >
+              <h4 class="producto" style="color: rgb(0,150,197)" >'.$fila["nombre"].'</h4>
               <img style="max-width:100px;" src="img/'.$fila["dir_img"].'">
               <h5 style="color: rgb(100,0,197)"> '.$fila["categoria"].'</h5>
-              <p > '.$fila["descripcion"].'</p>
+              <span class="bookPrice" style="color: rgb(30,180,40); font-size:1.5em" data-price='.$fila["precio"].'> '.$fila["precio"].'</span><br>
+              <button class="btn btn-primary agregar"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add</button>
+              </div>
+              <div style="margin-left:100px;"><p style="font-size:1.3em; position:relative; top:-12.5em;text-align:left; margin-left:15px;"> '.$fila["descripcion"].'</p></div>
               <hr>
+
               ';
 
       }

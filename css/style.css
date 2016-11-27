@@ -9,6 +9,8 @@ body
 	background: white;
 }
 
+
+
 .navbar-default{
     position: relative;
 		width: 100%;
@@ -17,8 +19,6 @@ body
 		border-color: #402F3B;
 		z-index: 200;
 }
-
-
 
 .navbar.navbar-default ul li a
 {
@@ -37,6 +37,51 @@ body
 	color: white !important;
 }
 
+.miBolsa
+{
+	position: fixed !important;
+	width: 300px;
+	background-color: #282240;
+	color: white;
+	margin: 30px;
+	text-align: center;
+	height: 350px;
+
+}
+
+.miBolsa h3
+{
+	position: relative;
+	background-color: #F2DCC9;
+	color: #282240;
+	margin: 0;
+	text-align: center;
+}
+
+.miBolsa .total
+{
+	font-size: 2em;
+}
+
+.miBolsa .btn-primary
+{
+	text-align: center;
+	margin: 20px;
+	background-color: #BF5065;
+}
+
+#tablaCarrito
+{
+	width: 100% !important;
+	color: white !important;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+}
+
+#tablaCarrito td{
+	border-color: transparent !important;
+}
 .white
 {
 	color: #000000;
@@ -47,6 +92,8 @@ body
 	margin: 0 auto;
 	width: 75%;
 }
+
+
 /* ------- Slider portada -------- */
 
 .title

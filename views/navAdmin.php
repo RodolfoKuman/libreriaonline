@@ -13,14 +13,14 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li><a href="#">Mi perfil</a></li>
+      <li><a href="dashboardAdmin.php">Mi perfil</a></li>
       <li><a href="#">Pedidos</a></li>
       <li><a href="books.php">Libros</a></li>
       <?php
         if($_SESSION["type"] == "administrador")
         {
           echo '<li><a href="users.php">Usuarios</a></li>
-                <li><a href="#">Bitácora</a></li>';
+                <li><a href="bitacoraLibros.php">Bitácora</a></li>';
         }
        ?>
 

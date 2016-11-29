@@ -14,9 +14,9 @@ body
 .navbar-default{
     position: relative;
 		width: 100%;
-		background: #402F3B;
+		background: #58BEC1;
 		border-radius: 0px 0px 0px 0px;
-		border-color: #402F3B;
+		border-color: #58BEC1;
 		z-index: 200;
 }
 
@@ -246,7 +246,7 @@ footer
 {
 	margin-top: 50px;
 	position: relative;
-	background: #BF365A;
+	background: #6ED6B2 !important;
 }
 
 

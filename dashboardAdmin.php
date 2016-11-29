@@ -38,7 +38,7 @@ session_start();
         <h4>Apellido: '.$_SESSION["apellido"].'</h4>
         <h4>Nickname: '.$_SESSION["nickname"].'</h4>
         <h4>Email: '.$_SESSION["email"].'</h4>
-        <button class="btn btn-primary">Editar</button>
+        <a href="editProfile.php" class="btn btn-primary">Editar</a>
       ';
    ?>
 </div>

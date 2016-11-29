@@ -1,6 +1,52 @@
 <?php
 
+function editarPerfil($datos){
 
+  if($fila = mysqli_fetch_array($datos)){
+
+		$nombreActual = utf8_encode($fila["nombre"]);
+    $apellidoActual = utf8_encode($fila["apellido"]);
+    $userActual = utf8_encode($fila["nom_user"]);
+
+
+		$codigoActual = $fila["id"];
+
+		$codigo = '<div class="contenedor ">
+
+      <form id="updatePerfil" action=""  method="POST"  >
+      <div class=" mensaje">
+
+      </div>
+      <div class="form-group">
+          <label for="">Nombre</label>
+          <input class="form-control" type="text" required="true" name="nombre" id="nombre" value="'.$nombreActual.'">
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="">Apellido</label>
+          <input class="form-control" type="text" name="apellido" id="apellido" required value="'.$apellidoActual.'">
+          <span class="help-block"></span>
+        </div>
+        <div class="form-group">
+          <label for="">Nombre de usuario</label>
+          <input class="form-control" type="text" name="user" id="user" placeholder="Mínimo 8 carácteres" required="true" value="'.$userActual.'">
+          <span class="help-block"></span>
+        </div>
+        <input type="hidden" id="codigo" name="codigo" value="'.$codigoActual.'">
+        <input type="submit" style="margin-top:20px;"  class="btn btn-primary" id="actualizarPerfil" value="Actualizar">
+        </div>
+    </form>
+
+    </div>';
+
+	}else{
+
+		$codigo = false;
+
+	}
+
+	return $codigo;
+}
 
 function tableUsers($datos){
   $codigo = '<div class="container tableUsers espaciado">';

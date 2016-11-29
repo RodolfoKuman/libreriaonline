@@ -133,3 +133,49 @@
               });
     })
   });
+
+
+  // Actualizar perfil personal
+
+  $(document).ready(function(){
+    $("#updatePerfil").on("submit",function(e){
+      e.preventDefault();
+        var nombre = $("#nombre").val();
+        var apellido = $("#apellido").val();
+        var user = $("#user").val();
+        var codigo= $("#codigo").val();
+              $.ajax({
+                  type: "POST",
+                  url: "models/perfilUpdate.php",        // enlace del archivo que contiene la funcionalidad de actualizar
+                  data:{ nombre: $("#nombre").val(),
+      					   apellido: $("#apellido").val(),
+      					   user: $("#user").val(),
+      					   codigo: $("#codigo").val()
+                 },
+
+                  beforeSend: function(){
+
+                  },
+                  success: function(data){
+
+                      console.log(data);
+                  // Si el servidor devuelve una respuesta se ejecuta lo siguiente dependiendo del resultado
+                  if(data == 1){
+
+                        $(".mensaje").html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><p>Perfil actualizado</p></div>');
+
+                      }
+                      else if (data == 2) {
+
+                            $(".mensaje").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><p>Error al actualizar</p></div>');
+                      }
+                      else if (data == 3) {
+                            $(".mensaje").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><p>Error en la base de datos</p></div>');
+                      }else if (data == 4) {
+                          $(".mensaje").html('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><p>No selecciono el registro a actualizar</p></div>');
+                      }
+
+                   }
+              });
+    })
+  });

@@ -1,10 +1,10 @@
 <?php
 session_start();
-  if($_SESSION["type"] == "administrador" || $_SESSION["type"] == "ejecutivo" ) {
+  if($_SESSION["type"] != "" ) {
     $user=$_SESSION["nombre"];
   }
   else {
-    header('Location: ../index.html');
+    header('Location: index.html');
   }
 ?>
 <!DOCTYPE html>

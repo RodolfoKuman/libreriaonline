@@ -8,14 +8,22 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand white" href="#">Librerias Shakespeare</a>
+    <a class="navbar-brand white">Librerias Shakespeare</a>
   </div>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li><a href="dashboardAdmin.php">Mi perfil</a></li>
-      <li><a href="#">Pedidos</a></li>
-      <li><a href="books.php">Libros</a></li>
+      <?php
+        if($_SESSION["type"] == "administrador" || $_SESSION["type"] == "ejecutivo")
+        {
+          echo '<li><a href="orders.php">Pedidos</a></li>
+                <li><a href="books.php">Libros</a></li>';
+        }else if ($_SESSION["type"] == "cliente") {
+          echo '<li><a href="buyBook.php">Comprar</a></li>
+                <li><a href="myofers.php">Mis pedidos</a></li>';
+        }
+       ?>
       <?php
         if($_SESSION["type"] == "administrador")
         {

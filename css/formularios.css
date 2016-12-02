@@ -74,8 +74,13 @@ form a
 	position: relative;
 	float: left;
 	width: 170px;
-	background: #8F2B45;
+	background: rgb(0,140,100);
 	margin-top: 20px;
+	transition: all,.5s;
+}
+
+#botonlogin:hover, #boton:hover, #botonActualizar:hover{
+	background: rgb(0,140,160);
 }
 /* form elements */
 label

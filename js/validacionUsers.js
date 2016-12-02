@@ -16,7 +16,7 @@ function login(){
                       window.location="dashboardAdmin.php";
                         }
                   else   if(data == "3"){
-                          $("#password").parent().children("span").html('Hola cliente').show();
+                      window.location="dashboardAdmin.php";
                         }
                    else if(data == "4"){
                           $("#password").parent().children("span").html('Usuario o contraseña incorrectos').show();

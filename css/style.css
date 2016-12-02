@@ -9,8 +9,9 @@ body
 	background: white;
 }
 
-
-
+.infoFactura{
+	display: none;
+}
 .navbar-default{
     position: relative;
 		width: 100%;
@@ -41,19 +42,20 @@ body
 {
 	position: fixed !important;
 	width: 300px;
-	background-color: #282240;
+	background-color: #72C096;
 	color: white;
 	margin: 30px;
 	text-align: center;
-	height: 350px;
-
+	height: 300px;
+	overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .miBolsa h3
 {
 	position: relative;
-	background-color: #F2DCC9;
-	color: #282240;
+	background-color: #F3F3F3;
+	color: #72C096;
 	margin: 0;
 	text-align: center;
 }
@@ -70,13 +72,18 @@ body
 	background-color: #BF5065;
 }
 
+.btn-success
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 #tablaCarrito
 {
 	width: 100% !important;
 	color: white !important;
-	overflow-y: scroll;
-	overflow-x: hidden;
-
+	overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #tablaCarrito td{
@@ -323,7 +330,11 @@ footer span
 
 	#promo
 	{
-		width: 100%;
+		width: 100%
+
+
+
+		;
 		top: 50px;
 	}
 

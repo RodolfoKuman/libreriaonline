@@ -1,26 +1,3 @@
-/*;(function(){
-
-  var price =[];
-  var product =[];
-
-  $(document).on('ready',function(){
-    $('.agregar').on('click', function(){
-
-      var precio = $(this).parent().children('span').data('price');
-      var producto = $(this).parent().find(' .producto').text();
-
-     price.push(precio);
-     product.push(producto);
-     console.log(product);
-     var total =0;
-     for (i = 0; i < price.length; i++) {  //Recorro el arreglo para obtener los precios de los productos agregados y sumarlos
-         total += parseInt(price[i]);  //
-     }
-
-     console.log(total);
-        $(".miBolsa .libro").html('<p>Articulos</p><span>' + product+'</span><button style= "font-size:10px"; class="btn btn-primary agregar"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>');
-        $(".miBolsa .total").html('Total: $' + total);
-   }); */
 
    $(document).on('ready', function(){
      $('.agregar').on("click",function(){
@@ -37,14 +14,10 @@
 
             },
             beforeSend: function(){
-                  console.log(nombreTabla);
                   $('.miBolsa').html('');
             },
             success: function(data){
               if(data == 1){
-                console.log('producto agregado');
-              //  $(".mensaje").html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><p>Libro '+ nombre + ' agregado</p></div>');
-                //$('#tablaCarrito tr:last').after('<tr><td>'+nombre+'</td><td>'+precio+'</td></tr>');
                 $.ajax({
                     url: 'models/cargarCarrito.php',
                     type: "POST",
@@ -52,7 +25,8 @@
                       nombreTabla: $('#nombreTabla').val()
                     },
                     success: function(data){
-                      $('.miBolsa').append(data);
+                    //  $('.miBolsa').append(data);
+                      location.href="buyBook.php";
                     }
 
                   });
@@ -63,43 +37,91 @@
      });
    });
 
+/* Funcion para eliminar los items del carrito */
+
+$(document).on('ready', function(){
+  $('.deleteItem').on("click",function(){
+    var id = $(this).data('id');
+    var nombreTabla =$('#nombreTabla').val();
+      $.ajax({
+         url: "models/deleteItem.php",
+         type: "POST",
+         data: {
+           id: $(this).data('id'),
+           nombreTabla: $('#nombreTabla').val()
+         },
+         beforeSend: function(){
+               $('.miBolsa').html('');
+
+         },
+         success: function(data){
+           console.log(data);
+           if(data == 1){
+             $.ajax({
+                 url: 'models/cargarCarrito.php',
+                 type: "POST",
+                 data: {
+                   nombreTabla: $('#nombreTabla').val()
+                 },
+                 success: function(data){
+                   //$('.miBolsa').append(data);
+                   location.href="buyBook.php";
+                 }
+
+               });
+           }
+         }
+
+      });//Final ajax
+
+  });
+
+});
 
 
-
-   /////// bolsa
-
+//Funcion para  Redireccionar a la pagina de confirmacion del pedido
 
 
+$(document).on('ready', function(){
 
+  $('.confirmarPedido').on('click', function(){
 
+             location.href="orderDetail.php";
+  });
 
-/*function sumarProduct(){
-  var total =0;
+});
 
-  for (i = 0; i < products.length; i++) {  //loop through the array
-      total += products[i];  //Do the math!
-  }
+$(document).on('ready', function(){
 
-  console.log(total);
-}
+  $('#purchase').on('submit',function(e){
+      e.preventDefault();
+      var id_user = $('#usuario').data('user');
+      var nombreTabla = $('#nombreTabla').data('tabla');
+      var direccion = $('#direccion').val();
+      var total = $('#total').data('total')
+      var telefono = $('#telefono').val();
 
+      $.ajax({
+          url: 'purchase.php',
+          type: "POST",
+          data: {
+              id_user: $('#usuario').data('user'),
+              total: $('#total').data('total'),
+              nombreTabla: $('#nombreTabla').data('tabla'),
+              direccion: $('#direccion').val(),
+              telefono: $('#telefono').val()
+          },
+          beforeSend: function(){
+              console.log(id_user,direccion,total,telefono,nombreTabla);
+          },
+          success: function(data){
+            $('#btn-comprar').html('Compra realizada');
+            $('#btn-comprar').attr("disabled", true);
+            $('.infoFactura').css("display","block");
+          }
 
+        });
+     //$(this).attr("disabled", true);
+  });
 
-// Funcion para sumar con jason
-function sumaProductos(price){
-  var foo = {
-          taxes: [
-              { amount: 20, currencyCode: "USD", decimalPlaces: 0, taxCode: "YRI"},
-              { amount: 50, currencyCode: "USD", decimalPlaces: 0, taxCode: "YRI"},
-              { amount: 10, currencyCode: "USD", decimalPlaces: 0, taxCode: "YRI"}
-          ]
-      },
-      total = 0,  //set a variable that holds our total
-      taxes = foo.taxes,  //reference the element in the "JSON" aka object literal we want
-      i;
-  for (i = 0; i < taxes.length; i++) {  //loop through the array
-      total += taxes[i].amount;  //Do the math!
-  }
-  console.log(total);  //display the result
-}
-*/
+});
